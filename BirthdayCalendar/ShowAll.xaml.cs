@@ -1,9 +1,10 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using BirthdayBackend;
 
 namespace BirthdayCalendar
 {
-    public partial class ShowAll : ContentPage
+    public partial class ShowAll : ContentPage, INotifyPropertyChanged
     {
         private ShowAllBE showBackEnd = new ShowAllBE();
         public ObservableCollection<Person> People { get; set; }

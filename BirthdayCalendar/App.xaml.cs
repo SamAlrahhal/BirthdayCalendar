@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new ShowAll();
+            MainPage = new addPerson();
         }
     }
 }

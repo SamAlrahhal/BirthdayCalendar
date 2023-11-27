@@ -6,14 +6,38 @@
     <ScrollView>
         <VerticalStackLayout>
             <StackLayout Orientation="Vertical">
-                <Label Text="First Name:" />
-                <Entry x:Name="FirstNameEntry" />
+                <Frame Padding="10" Margin="5" BackgroundColor="LightBlue">
+                    <Grid ColumnSpacing="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                <Label Text="Last Name:" />
-                <Entry x:Name="LastNameEntry" />
+                        <Label Grid.Row="0" Grid.Column="0" Text="First Name:" 
+              FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
+                        <Entry Grid.Row="0" Grid.Column="1" x:Name="FirstNameEntry" WidthRequest="250" Padding="10,20,10,20"/>
 
-                <Label Text="Date of Birth:" />
-                <DatePicker x:Name="DateOfBirthDatePicker" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Last Name:" 
+              FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
+                        <Entry Grid.Row="1" Grid.Column="1" x:Name="LastNameEntry" WidthRequest="250" Padding="10,20,10,20"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Date of Birth:" 
+              FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
+                        <DatePicker Grid.Row="2" Grid.Column="1" x:Name="DateOfBirthDatePicker" WidthRequest="250" Padding="10,20,10,20"/>
+
+                        <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Add Person" WidthRequest="400" Padding="10,20,10,20"
+              TextColor="LightBlue" BackgroundColor="DarkBlue" 
+              FontSize="20" FontAttributes="Bold" 
+                        Clicked="OnAddPersonClicked" />
+                    </Grid>
+                </Frame>
+
             </StackLayout>
 
 
