@@ -6,7 +6,7 @@ namespace BirthdayCalendar
 {
     public partial class ShowAll : ContentPage, INotifyPropertyChanged
     {
-        private ShowAllBE showBackEnd = new ShowAllBE();
+        private ShowAllBE showBackEnd = new ();
         public ObservableCollection<Person> People { get; set; }
 
         public ShowAll()

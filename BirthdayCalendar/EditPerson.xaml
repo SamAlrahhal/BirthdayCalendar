@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BirthdayCalendar.addPerson"
-             Title="addPerson">
+             x:Class="BirthdayCalendar.EditPerson"
+             Title="EditPerson">
     <ScrollView>
         <VerticalStackLayout>
             <StackLayout Orientation="Vertical">
                 <Frame Padding="10" Margin="5" BackgroundColor="LightBlue">
                     <Grid ColumnSpacing="3">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -31,10 +32,16 @@
               FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
                         <DatePicker Grid.Row="2" Grid.Column="1" x:Name="DateOfBirthDatePicker" WidthRequest="250" Margin="10,20,10,20"/>
 
-                        <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Add Person" WidthRequest="400" Margin="10,20,10,20"
+                        <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Save" WidthRequest="400" Margin="10,20,10,20"
               TextColor="LightBlue" BackgroundColor="DarkBlue" 
               FontSize="20" FontAttributes="Bold" 
-                        Clicked="OnAddPersonClicked" />
+                        Clicked="OnSavePersonClicked" />
+                        
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Delete Peson" WidthRequest="400" Margin="10,20,10,20"
+              TextColor="LightBlue" BackgroundColor="DarkBlue" 
+              FontSize="20" FontAttributes="Bold" 
+                        Clicked="OnDeletePerson" />
+                        
                     </Grid>
                 </Frame>
 

@@ -66,6 +66,9 @@
 	  <MauiXaml Update="AddPerson.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="EditPerson.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ShowAll.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -7,14 +7,11 @@ namespace BirthdayBackend
 {
     public class ShowAllBE
     {
-        public ObservableCollection<Person> People { get; set; }
+        public ObservableCollection<Person>? People { get; set; }
 
 
 
-        public void print()
-        {
-            Debug.Print("it works");
-        }
+
 
         public ObservableCollection<Person> MakePpl()
         {
