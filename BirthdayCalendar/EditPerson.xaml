@@ -42,8 +42,6 @@
      FontSize="20" FontAttributes="Bold" 
      HorizontalOptions="Center" Clicked="OnDeletePersonClicked"/>
 
-
-
                     </Grid>
                 </Frame>
 

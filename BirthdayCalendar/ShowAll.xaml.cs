@@ -8,11 +8,14 @@ namespace BirthdayCalendar
     public partial class ShowAll : ContentPage, INotifyPropertyChanged
     {
         private ShowAllBE showBackEnd = new ();
+
         public ObservableCollection<Person> People { get; set; }
 
         public ShowAll()
         {
             InitializeComponent();
+
+
 
 
             // Set the BindingContext to this instance of ShowAll
@@ -24,7 +27,10 @@ namespace BirthdayCalendar
         void OnEditClicked(object sender, EventArgs e)
         {
             Debug.Print("person edit");
-            Navigation.PushAsync(new EditPerson());
+             Navigation.PushAsync(new EditPerson());
+
+
+
         }
     }
 }
