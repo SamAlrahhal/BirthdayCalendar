@@ -4,18 +4,19 @@ namespace BirthdayCalendar;
 
 public partial class EditPerson : ContentPage
 {
-	public EditPerson()
-	{
-		InitializeComponent();
-	}
+    public EditPerson()
+    {
+        InitializeComponent();
+    }
 
-	public void OnSavePersonClicked()
-	{
-		Debug.Print("soemthing");
-	}
+    void OnSavePesonClicked(object sender, EventArgs e)
+    {
+        Debug.Print("save");
+    }
 
-	public void OnDeletePersonClicked()
-	{
+    void OnDeletePersonClicked(object sender, EventArgs e)
+    {
+        Debug.Print("deleted");
 
-	}
+    }
 }

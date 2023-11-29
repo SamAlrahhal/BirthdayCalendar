@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using BirthdayBackend;
 
 namespace BirthdayCalendar
@@ -18,6 +19,12 @@ namespace BirthdayCalendar
             People = showBackEnd.MakePpl();
             
             this.BindingContext = this;
+        }
+
+        void OnEditClicked(object sender, EventArgs e)
+        {
+            Debug.Print("person edit");
+            Navigation.PushAsync(new EditPerson());
         }
     }
 }

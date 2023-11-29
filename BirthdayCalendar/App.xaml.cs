@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new EditPerson();
+            MainPage = new ShowAll();
         }
     }
 }

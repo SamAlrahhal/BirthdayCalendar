@@ -29,19 +29,21 @@
                         <Entry Grid.Row="1" Grid.Column="1" x:Name="LastNameEntry" WidthRequest="250" Margin="10,20,10,20"/>
 
                         <Label Grid.Row="2" Grid.Column="0" Text="Date of Birth:" Margin="10,20,10,20"
-              FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
+                             FontAttributes="Bold" FontSize="20" TextColor="DarkBlue" />
                         <DatePicker Grid.Row="2" Grid.Column="1" x:Name="DateOfBirthDatePicker" WidthRequest="250" Margin="10,20,10,20"/>
 
                         <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Save" WidthRequest="400" Margin="10,20,10,20"
-              TextColor="LightBlue" BackgroundColor="DarkBlue" 
-              FontSize="20" FontAttributes="Bold" 
-                        Clicked="OnSavePersonClicked" />
-                        
+     TextColor="LightBlue" BackgroundColor="DarkBlue" 
+     FontSize="20" FontAttributes="Bold" 
+     HorizontalOptions="Center"  Clicked="OnSavePesonClicked"/>
+
                         <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Delete Peson" WidthRequest="400" Margin="10,20,10,20"
-              TextColor="LightBlue" BackgroundColor="DarkBlue" 
-              FontSize="20" FontAttributes="Bold" 
-                        Clicked="OnDeletePerson" />
-                        
+     TextColor="LightBlue" BackgroundColor="DarkBlue" 
+     FontSize="20" FontAttributes="Bold" 
+     HorizontalOptions="Center" Clicked="OnDeletePersonClicked"/>
+
+
+
                     </Grid>
                 </Frame>
 
