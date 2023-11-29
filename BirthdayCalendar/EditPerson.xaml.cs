@@ -12,11 +12,15 @@ public partial class EditPerson : ContentPage
     void OnSavePesonClicked(object sender, EventArgs e)
     {
         Debug.Print("save");
+        Navigation.PushAsync(new ShowAll());
+
     }
 
     void OnDeletePersonClicked(object sender, EventArgs e)
     {
         Debug.Print("deleted");
+        Navigation.PushAsync(new ShowAll());
+
 
     }
 }
