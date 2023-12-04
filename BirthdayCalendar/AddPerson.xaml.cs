@@ -4,10 +4,10 @@ namespace BirthdayCalendar;
 
 public partial class addPerson : ContentPage
 {
-	public addPerson()
-	{
+    public addPerson()
+    {
         InitializeComponent();
-	}
+    }
 
     void OnAddPersonClicked(object sender, EventArgs e)
     {

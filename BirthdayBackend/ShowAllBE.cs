@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
- 
+﻿using System.Collections.ObjectModel;
+
 
 namespace BirthdayBackend
 {
     public class ShowAllBE
     {
         public ObservableCollection<Person>? People { get; set; }
-
 
 
 
@@ -22,29 +19,6 @@ namespace BirthdayBackend
                 new Person("JeffreyEpstienNogger", "Doe", DateOnly.Parse("01/09/1950")),
                 new Person("samaloen", "alrahhoel", DateOnly.Parse("01/09/1950")),
                 new Person("jalereen", "Doeleeen", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
-                new Person("Jane", "Doe", DateOnly.Parse("01/09/1950")),
 
             };
             return People;
