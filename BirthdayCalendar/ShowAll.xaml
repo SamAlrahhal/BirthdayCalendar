@@ -6,46 +6,50 @@
              Title="ShowAll">
 
 
+    <StackLayout>
+        <Button  Text="Add person" Clicked="OnAddPersonClicked"  HeightRequest="50"/>
 
-    <ScrollView>
-        <CollectionView ItemsSource="{Binding People}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10" Margin="5" BackgroundColor="LightBlue">
-                        <Grid ColumnSpacing="4">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding People}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BackgroundColor="LightBlue">
+                            <Grid ColumnSpacing="4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
 
-                            </Grid.ColumnDefinitions>
+                                </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkBlue">
-                                <Label.Text >
-                                    <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="FirstName" />
-                                        <Binding Path="LastName" />
-                                    </MultiBinding>
-                                </Label.Text>
-                            </Label>
+                                <Label Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkBlue">
+                                    <Label.Text >
+                                        <MultiBinding StringFormat="{}{0} {1}">
+                                            <Binding Path="FirstName" />
+                                            <Binding Path="LastName" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
 
-                            <Label Grid.Row="1" Grid.Column="0"
+                                <Label Grid.Row="1" Grid.Column="0"
                            Text="{Binding BirthDate, StringFormat='{0:dd/MM}'}"
                            FontAttributes="Bold"
                            FontSize="16"
                            TextColor="DarkCyan" />
-                            <Button Grid.Row="2" Grid.Column="0" Text="Edit" Clicked="OnEditClicked" WidthRequest="300" HeightRequest="50"/>
-                            <Button Grid.Row="2" Grid.Column="1" Text="add person" Clicked="OnAddPersonClicked"  HeightRequest="50"/>
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ScrollView>
+                                <Button Grid.Row="2" Grid.Column="0" Text="Edit" Clicked="OnEditClicked" WidthRequest="300" HeightRequest="50"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </ScrollView>
+    </StackLayout>
+
 
 </ContentPage>
