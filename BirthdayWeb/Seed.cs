@@ -22,7 +22,7 @@ namespace BirthdayWeb
                     {
                         FirstName = "Harry",
                         LastName = "Potter",
-                        BirthDate = new DateOnly(1980, 7, 31),
+                        BirthDate = new DateTime(1980, 7, 31),
                     },
                 };
                 dataContext.People.AddRange(people);
