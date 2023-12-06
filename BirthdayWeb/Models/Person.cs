@@ -6,11 +6,14 @@
         public string LastName { get; set; }
         public DateOnly BirthDate { get; set; }
 
-        public Person(string firstName, string lastName, DateOnly birthDate)
+        public int Id { get; set; }
+
+        public Person(string firstName, string lastName, DateOnly birthDate, int id)
         {
-            this.FirstName = firstName;
+            this.FirstName = firstName; 
             this.LastName = lastName;
             this.BirthDate = birthDate;
+            this.Id = id;
         }
 
         //default constructor
@@ -18,7 +21,8 @@
         {
             this.FirstName = "";
             this.LastName = "";
-            this.BirthDate = DateOnly.MinValue; // or any default date you want
+            this.BirthDate = DateOnly.MinValue;
+            this.Id = 0;
         }
 
     }
