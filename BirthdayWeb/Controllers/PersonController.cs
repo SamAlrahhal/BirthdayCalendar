@@ -1,4 +1,5 @@
 ﻿using BirthdayWeb.Interfaces;
+using BirthdayWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BirthdayWeb.Controllers
@@ -19,8 +20,31 @@ namespace BirthdayWeb.Controllers
             var people = _personRepository.GetAllPeople();
 
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
+            }
+
             return Ok(people);
         }
+        [HttpGet("{personId}")]
+        [ProducesResponseType(200, Type = typeof(Person))]
+        [ProducesResponseType(400)]
+
+        public IActionResult GetPerson(int personId)
+        {
+            if (!_personRepository.PersonExists(personId))
+            {
+                return NotFound();
+            }
+            var person = _personRepository.GetPerson(personId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(person);
+        }
+
     }
 }

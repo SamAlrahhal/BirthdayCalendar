@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BirthdayWeb.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231206150346_InitialCreate")]
+    [Migration("20231207105210_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

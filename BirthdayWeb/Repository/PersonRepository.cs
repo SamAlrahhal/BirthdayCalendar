@@ -16,5 +16,31 @@ namespace BirthdayWeb.Repository
         {
             return _context.People.OrderBy(p=>p.Id).ToList();
         }
+
+        public Person GetPerson(int id)
+        {
+            
+            return _context.People.Where(p => p.Id == id).FirstOrDefault();
+        }
+
+        public Person GetPersonBirthDate(DateTime birthDate)
+        {
+            return _context.People.Where(p => p.BirthDate == birthDate).FirstOrDefault();
+        }
+
+        public Person GetPersonFristName(string firstName)
+        {
+            return _context.People.Where(p => p.FirstName == firstName).FirstOrDefault();
+        }
+
+        public Person GetPersonLastName(string lastName)
+        {
+            return _context.People.Where(p => p.LastName == lastName).FirstOrDefault();
+        }
+
+        public bool PersonExists(int id)
+        {
+            return _context.People.Any(p => p.Id == id);
+        }
     }
 }
