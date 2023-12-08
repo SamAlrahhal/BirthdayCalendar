@@ -12,9 +12,15 @@ namespace BirthdayWeb.Repository
             _context = context;
         }
 
+        public bool CreatePerson(Person person)
+        {
+            _context.Add(person);
+            return Save();
+        }
+
         public ICollection<Person> GetAllPeople()
         {
-            return _context.People.OrderBy(p=>p.Id).ToList();
+            return _context.People.ToList();
         }
 
         public Person GetPerson(int id)
@@ -41,6 +47,12 @@ namespace BirthdayWeb.Repository
         public bool PersonExists(int id)
         {
             return _context.People.Any(p => p.Id == id);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved >= 0 ? true : false;
         }
     }
 }

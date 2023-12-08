@@ -1,6 +1,8 @@
-﻿using BirthdayWeb.Interfaces;
+﻿using BirthdayWeb.Dto;
+using BirthdayWeb.Interfaces;
 using BirthdayWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Metrics;
 
 namespace BirthdayWeb.Controllers
 {
@@ -26,6 +28,7 @@ namespace BirthdayWeb.Controllers
 
             return Ok(people);
         }
+
         [HttpGet("{personId}")]
         [ProducesResponseType(200, Type = typeof(Person))]
         [ProducesResponseType(400)]
@@ -45,6 +48,47 @@ namespace BirthdayWeb.Controllers
 
             return Ok(person);
         }
+
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreatePerson([FromBody] PersonDto personDto)
+        {
+            if (personDto == null)
+                return BadRequest(ModelState);
+
+            var existingPerson = _personRepository.GetAllPeople()
+                .FirstOrDefault(c => c.FirstName.Trim().ToUpper() == personDto.FirstName.Trim().ToUpper() &&
+                                    c.LastName.Trim().ToUpper() == personDto.LastName.Trim().ToUpper());
+
+            if (existingPerson != null)
+            {
+                ModelState.AddModelError("", "Person with the same first name and last name already exists");
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var personToCreate = new Person
+            {
+                FirstName = personDto.FirstName,
+                LastName = personDto.LastName,
+                BirthDate = personDto.BirthDate
+            };
+
+            if (!_personRepository.CreatePerson(personToCreate))
+            {
+                ModelState.AddModelError("", $"Something went wrong saving {personToCreate.FirstName} {personToCreate.LastName}");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully created");
+        }
+
+
+
 
     }
 }
