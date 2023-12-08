@@ -13,6 +13,8 @@ namespace BirthdayWeb.Interfaces
         bool PersonExists(int id);
 
         bool CreatePerson(Person person);
+        bool UpdatePerson(Person person);
+        bool DeletePerson(Person person);
         bool Save();
     }
 }

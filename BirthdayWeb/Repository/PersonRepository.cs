@@ -18,6 +18,12 @@ namespace BirthdayWeb.Repository
             return Save();
         }
 
+        public bool DeletePerson(Person person)
+        {
+            _context.Remove(person);
+            return Save(); 
+        }
+
         public ICollection<Person> GetAllPeople()
         {
             return _context.People.ToList();
@@ -53,6 +59,12 @@ namespace BirthdayWeb.Repository
         {
             var saved = _context.SaveChanges();
             return saved >= 0 ? true : false;
+        }
+
+        public bool UpdatePerson(Person person)
+        {
+            _context.Update(person);
+            return Save();
         }
     }
 }

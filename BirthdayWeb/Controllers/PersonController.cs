@@ -2,6 +2,7 @@
 using BirthdayWeb.Interfaces;
 using BirthdayWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 
 namespace BirthdayWeb.Controllers
@@ -85,6 +86,76 @@ namespace BirthdayWeb.Controllers
             }
 
             return Ok("Successfully created");
+        }
+
+        //update person
+        [HttpPut("{personId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdatePerson(int personId, [FromBody] PersonDto personDto)
+        {
+            Debug.WriteLine("something");
+            if (personDto == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            //if (personId != personDto.Id)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            var person = _personRepository.GetPerson(personId);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            person.FirstName = personDto.FirstName;
+            person.LastName = personDto.LastName;
+            person.BirthDate = personDto.BirthDate;
+
+            if (!_personRepository.UpdatePerson(person))
+            {
+                ModelState.AddModelError("", $"Something went wrong updating {person.FirstName} {person.LastName}");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully updated");
+        }
+
+        //delete person
+        [HttpDelete("{personId}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult DeletePerson(int personId)
+        {
+            if (!_personRepository.PersonExists(personId))
+            {
+                return NotFound();
+            }
+
+            var person = _personRepository.GetPerson(personId);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!_personRepository.DeletePerson(person))
+            {
+                ModelState.AddModelError("", $"Something went wrong deleting {person.FirstName} {person.LastName}");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully deleted");
         }
 
 
