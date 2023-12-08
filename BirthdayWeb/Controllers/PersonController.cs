@@ -158,8 +158,5 @@ namespace BirthdayWeb.Controllers
             return Ok("Successfully deleted");
         }
 
-
-
-
     }
 }
