@@ -7,9 +7,7 @@
 
     <StackLayout>
         <Button Text="Add person" Clicked="OnAddPersonClicked" HeightRequest="50"/>
-
-        <ScrollView>
-            <CollectionView ItemsSource="{Binding People}">
+        <CollectionView ItemsSource="{Binding People}" VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BackgroundColor="LightBlue">
@@ -46,6 +44,5 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </ScrollView>
     </StackLayout>
 </ContentPage>

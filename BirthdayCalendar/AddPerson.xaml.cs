@@ -16,6 +16,9 @@ public partial class addPerson : ContentPage
     async void OnAddPersonClicked(object sender, EventArgs e)
     {
         var httpClient = new HttpClient();
+        var url = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5129/api/Person" : "http://localhost:5129/api/Person";
+
+
 
         // Get the person data from the UI elements
         string firstName = FirstNameEntry.Text;
@@ -35,8 +38,8 @@ public partial class addPerson : ContentPage
 
         // Send an HTTP POST request to the API endpoint
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync("https://localhost:44323/api/Person", content);
 
+        var response = await httpClient.PostAsync(url, content);
         // Check the response status code
         if (response.IsSuccessStatusCode)
         {
@@ -51,6 +54,8 @@ public partial class addPerson : ContentPage
             // Display an error message
             _ = DisplayAlert("Error Adding Person", "An error occurred while adding the person.", "OK");
         }
+        await Navigation.PushAsync(new ShowAll());
+
     }
 
 

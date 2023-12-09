@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using BirthdayCalendar.Service;
 using BirthdayCalendar.Models;
 using Newtonsoft.Json;
 
@@ -32,19 +31,22 @@ namespace BirthdayCalendar
 
         void OnEditClicked(object sender, EventArgs e)
         {
-            Debug.Print("person edit");
-            Navigation.PushAsync(new EditPerson());
+            Person person = (Person)e.ClickedItem;
+
+            Debug.Print("person id: "+ person.Id);
 
         }
 
         public async void ShowAllPpl()
         {
-            var httpClient = new HttpClient();
-            var responce = await httpClient.GetAsync("https://localhost:44323/api/Person");
 
-            if (responce.IsSuccessStatusCode)
+            var httpClient = new HttpClient();
+            var url = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5129/api/Person" : "http://localhost:5129/api/Person";
+            var response = await httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
             {
-                var content = await responce.Content.ReadAsStringAsync();
+                var content = await response.Content.ReadAsStringAsync();
                 var people = JsonConvert.DeserializeObject<IEnumerable<Person>>(content);
                 if (People == null)
                 {
@@ -55,22 +57,26 @@ namespace BirthdayCalendar
                 {
                     People.Add(person);
                 }
-                Debug.WriteLine($"People: {people}");
+                foreach (var person in People)
+                {
+                    Debug.WriteLine($"People: {person.FirstName}", $"Ids: { person.Id}");
+                }
             }
             else
             {
-                Debug.WriteLine($"Error: {responce.StatusCode}");
+                Debug.WriteLine($"Error: {response.StatusCode}");
             }
         }
 
 
-        
+
+
 
 
         void OnAddPersonClicked(object sender, EventArgs e)
         {
 
-             Navigation.PushAsync(new addPerson());
+            Navigation.PushAsync(new addPerson());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
