@@ -9,6 +9,8 @@ namespace BirthdayCalendar
 {
     public partial class ShowAll : ContentPage, INotifyPropertyChanged
     {
+        public static int PersonIdToPass { get; set; }
+
         private ObservableCollection<Person> _people;
         public ObservableCollection<Person> People
         {
@@ -31,9 +33,10 @@ namespace BirthdayCalendar
 
         void OnEditClicked(object sender, EventArgs e)
         {
-            Person person = (Person)e.ClickedItem;
-
-            Debug.Print("person id: "+ person.Id);
+            Button button = (Button)sender;
+            int personId = (int)button.CommandParameter;
+            PersonIdToPass = personId;
+            Navigation.PushAsync(new EditPerson());
 
         }
 
