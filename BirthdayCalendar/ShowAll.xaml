@@ -5,9 +5,8 @@
              x:Class="BirthdayCalendar.ShowAll"
              Title="ShowAll">
 
-
     <StackLayout>
-        <Button  Text="Add person" Clicked="OnAddPersonClicked"  HeightRequest="50"/>
+        <Button Text="Add person" Clicked="OnAddPersonClicked" HeightRequest="50"/>
 
         <ScrollView>
             <CollectionView ItemsSource="{Binding People}">
@@ -28,7 +27,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkBlue">
-                                    <Label.Text >
+                                    <Label.Text>
                                         <MultiBinding StringFormat="{}{0} {1}">
                                             <Binding Path="FirstName" />
                                             <Binding Path="LastName" />
@@ -41,15 +40,12 @@
                            FontAttributes="Bold"
                            FontSize="16"
                            TextColor="DarkCyan" />
-                                <Button Grid.Row="2" Grid.Column="0" Text="Edit" Clicked="OnEditClicked" WidthRequest="300" HeightRequest="50"/>
+                                <Button Grid.Row="2" Grid.Column="0" Text="Edit" Clicked="OnEditClicked" WidthRequest="300" HeightRequest="50" />
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
         </ScrollView>
     </StackLayout>
-
-
 </ContentPage>

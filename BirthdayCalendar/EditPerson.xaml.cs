@@ -1,5 +1,4 @@
 using System.Diagnostics;
-
 namespace BirthdayCalendar;
 
 public partial class EditPerson : ContentPage
@@ -14,13 +13,12 @@ public partial class EditPerson : ContentPage
         Debug.Print("save");
         Navigation.PushAsync(new ShowAll());
 
-    }
-
-    void OnDeletePersonClicked(object sender, EventArgs e)
+    }    void OnDeletePersonClicked(object sender, EventArgs e)
     {
-        Debug.Print("deleted");
+        Debug.Print("save");
         Navigation.PushAsync(new ShowAll());
 
-
     }
+
+
 }

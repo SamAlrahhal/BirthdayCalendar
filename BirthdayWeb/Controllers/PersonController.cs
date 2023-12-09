@@ -102,10 +102,11 @@ namespace BirthdayWeb.Controllers
                 return BadRequest(ModelState);
             }
 
-            //if (personId != personDto.Id)
-            //{
-            //    return BadRequest(ModelState);
-            //}
+            //idk if i should keep this
+            if (personId != personDto.Id)
+            {
+                return BadRequest(ModelState);
+            }
 
             var person = _personRepository.GetPerson(personId);
             if (person == null)
