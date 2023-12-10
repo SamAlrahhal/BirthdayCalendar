@@ -23,7 +23,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
         options.UseMySQL(connectionstring);
 });
-
+Debug.WriteLine(connectionstring);
+Console.WriteLine(connectionstring);
 
 var app = builder.Build();
 

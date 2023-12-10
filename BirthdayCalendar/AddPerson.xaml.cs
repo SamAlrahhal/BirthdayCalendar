@@ -16,7 +16,7 @@ public partial class addPerson : ContentPage
     async void OnAddPersonClicked(object sender, EventArgs e)
     {
         var httpClient = new HttpClient();
-        var url = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5129/api/Person" : "http://localhost:5129/api/Person";
+        var url = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5279/api/Person" : "http://localhost:5279/api/Person";
 
 
 
