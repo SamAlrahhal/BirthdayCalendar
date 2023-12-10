@@ -3,6 +3,7 @@ using BirthdayWeb.Data;
 using BirthdayWeb.Interfaces;
 using BirthdayWeb.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,10 +17,13 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+string connectionstring = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception("NO DEFAULT CONNECTION STRING FOUND");
 builder.Services.AddDbContext<DataContext>(options =>
 {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+        options.UseMySQL(connectionstring);
 });
+
 
 var app = builder.Build();
 
@@ -36,6 +40,8 @@ void SeedData(IHost app)
         service.SeedDataContext();
     }
 }
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

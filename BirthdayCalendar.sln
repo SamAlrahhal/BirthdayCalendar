@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirthdayCalendar", "Birthda
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirthdayBackend", "BirthdayBackend\BirthdayBackend.csproj", "{514EDAD4-087C-4E92-A090-DD431FA13278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirthdayWeb", "BirthdayWeb\BirthdayWeb.csproj", "{94A0E8E2-71A9-4639-8E39-7DB9FF5C88D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirthdayWeb", "BirthdayWeb\BirthdayWeb.csproj", "{94A0E8E2-71A9-4639-8E39-7DB9FF5C88D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12173D6F-11A7-4FBE-9C15-98EE8229D2CA}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
