@@ -60,10 +60,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\BirthdayBackend\BirthdayBackend.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="AddPerson.xaml.cs">
 	    <DependentUpon>AddPerson.xaml</DependentUpon>
 	  </Compile>
