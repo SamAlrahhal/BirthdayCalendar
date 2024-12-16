@@ -6,7 +6,7 @@
              Title="ShowAll">
 
     <StackLayout>
-        <Button Text="Add person" Clicked="OnAddPersonClicked" HeightRequest="50"/>
+        <Button Text="Add Person" Clicked="OnAddPersonClicked" HeightRequest="50" BackgroundColor="CornflowerBlue" TextColor="White" Margin="10" CornerRadius="25"/>
         <CollectionView ItemsSource="{Binding People}" VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
