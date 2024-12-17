@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BirthdayCalendar"
              x:Class="BirthdayCalendar.MainPage"
-             Title="Birthdays This Month">
+             Title="Home">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Person" Clicked="OnAddPersonClicked" Order="Primary" Priority="0" />
@@ -11,11 +11,11 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
+        <!-- Today's Birthdays -->
         <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
-            <Label Text="Upcoming Birthdays" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" TextColor="DarkBlue" />
+            <Label Text="Today's Birthdays" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="DarkBlue" />
         </Frame>
-
-        <CollectionView ItemsSource="{Binding People}" VerticalOptions="FillAndExpand">
+        <CollectionView ItemsSource="{Binding PeopleToday}" VerticalOptions="FillAndExpand">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Padding="15" Margin="10" BackgroundColor="White" CornerRadius="15" HasShadow="True" BorderColor="LightGray">
@@ -23,15 +23,8 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="22" TextColor="DarkSlateBlue">
+                            <Label Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkSlateBlue">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0} {1}">
                                         <Binding Path="FirstName" />
@@ -39,16 +32,67 @@
                                     </MultiBinding>
                                 </Label.Text>
                             </Label>
+                            <Label Grid.Row="1" Text="{Binding BirthDate, StringFormat='Birthday: {0:dd MMMM}'}" FontSize="18" TextColor="Teal" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-                            <Label Grid.Row="1" Grid.Column="0"
-                                   Text="{Binding Birthday, StringFormat='{0:dd MMMM}'}"
-                                   FontSize="18"
-                                   TextColor="Teal" />
+        <!-- This Week's Birthdays -->
+        <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
+            <Label Text="This Week's Birthdays" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="DarkBlue" />
+        </Frame>
+        <CollectionView ItemsSource="{Binding PeopleThisWeek}" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" Margin="10" BackgroundColor="White" CornerRadius="15" HasShadow="True" BorderColor="LightGray">
+                        <Grid ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkSlateBlue">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="FirstName" />
+                                        <Binding Path="LastName" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label Grid.Row="1" Text="{Binding BirthDate, StringFormat='Birthday: {0:dd MMMM}'}" FontSize="18" TextColor="Teal" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- This Month's Birthdays -->
+        <Frame BackgroundColor="LightGray" CornerRadius="10" Padding="10" Margin="10">
+            <Label Text="This Month's Birthdays" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="DarkBlue" />
+        </Frame>
+        <CollectionView ItemsSource="{Binding PeopleThisMonth}" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" Margin="10" BackgroundColor="White" CornerRadius="15" HasShadow="True" BorderColor="LightGray">
+                        <Grid ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" FontAttributes="Bold" FontSize="20" TextColor="DarkSlateBlue">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="FirstName" />
+                                        <Binding Path="LastName" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label Grid.Row="1" Text="{Binding BirthDate, StringFormat='Birthday: {0:dd MMMM}'}" FontSize="18" TextColor="Teal" />
                         </Grid>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
-
 </ContentPage>
